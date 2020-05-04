@@ -44,4 +44,4 @@ out/
 !**/src/main/**
 !**/src/test/**
 
-.allure
+.allure/

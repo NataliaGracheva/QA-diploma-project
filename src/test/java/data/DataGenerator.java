@@ -7,9 +7,6 @@ import java.util.Date;
 
 public class DataGenerator {
 
-    public DataGenerator() {
-    }
-
     public static Card getValidCard() {
         return new Card("4444 4444 4444 4441", "12", "22", "Card Holder", "123");
     }

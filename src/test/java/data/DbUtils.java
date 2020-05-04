@@ -9,12 +9,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbUtils {
-
-    public DbUtils() {
-    }
+    static String url = System.getProperty("db.url");
+    static String user = System.getProperty("db.user");
+    static String password = System.getProperty("db.password");
 
     public static void clearTables() throws SQLException {
-        String url = System.getProperty("url");
+
         val deleteOrderEntity = "DELETE FROM order_entity;";
         val deletePaymentEntity = "DELETE FROM payment_entity;";
         val deleteCreditRequestEntity = "DELETE FROM credit_request_entity;";
@@ -22,11 +22,8 @@ public class DbUtils {
         val runner = new QueryRunner();
 
         try (
-//                val conn = DriverManager.getConnection(
-//                        "jdbc:mysql://localhost:3306/app", "app", "pass"
-//                );
                 val conn = DriverManager.getConnection(
-                        url, "app", "pass"
+                        url, user, password
                 );
         ) {
             runner.update(conn, deleteOrderEntity);
@@ -48,17 +45,13 @@ public class DbUtils {
     }
 
     public static String countRecords() throws SQLException {
-        String url = System.getProperty("url");
         val countSQL = "SELECT COUNT(*) FROM order_entity;";
         val runner = new QueryRunner();
         Long count = null;
 
         try (
-//                val conn = DriverManager.getConnection(
-//                        "jdbc:mysql://localhost:3306/app", "app", "pass"
-//                );
                 val conn = DriverManager.getConnection(
-                        url, "app", "pass"
+                        url, user, password
                 );
         ) {
             count = runner.query(conn, countSQL, new ScalarHandler<>());
@@ -67,17 +60,13 @@ public class DbUtils {
         return Long.toString(count);
     }
 
-    static String getData(String query) throws SQLException {
-        String url = System.getProperty("url");
+    private static String getData(String query) throws SQLException {
         val runner = new QueryRunner();
         String data = "";
 
         try (
-//                val conn = DriverManager.getConnection(
-//                        "jdbc:mysql://localhost:3306/app", "app", "pass"
-//                );
                 val conn = DriverManager.getConnection(
-                        url, "app", "pass"
+                        url, user, password
                 );
         ) {
             data = runner.query(conn, query, new ScalarHandler<>());

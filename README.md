@@ -32,12 +32,14 @@
 * запуск тестов (Allure):
    * для запуска под MySQL использовать команду 
    ```
-   gradlew -Durl=jdbc:mysql://localhost:3306/app clean test allureReport
+   gradlew -Ddb.url=jdbc:mysql://localhost:3306/app clean test
    ```
    * для запуска под PostgreSQL использовать команду 
    ```
-   gradlew -Durl=jdbc:postgresql://localhost:5432/app clean test allureReport
+   gradlew -Ddb.url=jdbc:postgresql://localhost:5432/app clean test
    ```
+    *По умолчанию тесты запускаются для "http://localhost:8080/", чтобы изменить адрес, необходимо дополнительно указать `-Dsut.url=...`
+    *Чтобы использовать для подключения к БД логин и пароль отличные от указанных по умолчанию, необходимо дополнительно указать `-Ddb.user=...` и `-Ddb.password=...`
 * для получения отчета (Allure) использовать команду `gradlew allureServe`
 * после окончания тестов завершить работу приложения (Ctrl+C), остановить контейнеры командой `docker-compose down`
 
