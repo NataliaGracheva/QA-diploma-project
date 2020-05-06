@@ -1,5 +1,10 @@
 # Дипломный проект профессии «Тестировщик»
 
+## Документы
+* [План автоматизации](https://github.com/NataliaGracheva/QA-diploma-project/blob/master/docs/Plan.md)
+* [Отчет по итогам тестирования](https://github.com/NataliaGracheva/QA-diploma-project/blob/master/docs/Report.md)
+* [Отчет по итогам автоматизации](https://github.com/NataliaGracheva/QA-diploma-project/blob/master/docs/Summary.md)
+
 Дипломный проект представляет собой автоматизацию тестирования комплексного сервиса, взаимодействующего с СУБД и API Банка.
 
 ## Описание приложения
@@ -38,13 +43,8 @@
    ```
    gradlew -Ddb.url=jdbc:postgresql://localhost:5432/app clean test
    ```
-    *По умолчанию тесты запускаются для "http://localhost:8080/", чтобы изменить адрес, необходимо дополнительно указать `-Dsut.url=...`
+    *По умолчанию тесты запускаются для "http://localhost:8080/", чтобы изменить адрес, необходимо дополнительно указать `-Dsut.url=...`  
     *Чтобы использовать для подключения к БД логин и пароль отличные от указанных по умолчанию, необходимо дополнительно указать `-Ddb.user=...` и `-Ddb.password=...`
 * для получения отчета (Allure) использовать команду `gradlew allureServe`
 * после окончания тестов завершить работу приложения (Ctrl+C), остановить контейнеры командой `docker-compose down`
 
-## Документы
-* [План автоматизации](https://github.com/NataliaGracheva/QA-diploma-project/blob/master/docs/Plan.md)
-* [Отчет по итогам тестирования](https://github.com/NataliaGracheva/QA-diploma-project/blob/master/docs/Report.md)
-* [Отчет по итогам автоматизации](https://github.com/NataliaGracheva/QA-diploma-project/blob/master/docs/Report.md)
-   
